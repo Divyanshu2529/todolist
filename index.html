@@ -1,29 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <script src="script.js"></script>
+
     <div class="background"></div>
+
     <header class="hero">
         <div class="heading">
             <h1 class="main_heading">TASK MANAGER</h1>
-            <p class="small_heading"> Make Tasks and Life Easy</p>
+            <p class="small_heading">Make Tasks and Life Easy</p>
         </div>
     </header>
-    <body>
-        <div>
-            <div>
-                What needs to be done ?
-            </div>
-            <button>
 
-            </button>
+    <main>
+        <div class="layout">
+            <aside class="stats_panel">
+                <div class="stat_card">
+                    <div class="stat_icon icon_total">☑</div>
+                    <div class="stat_text">
+                        <p class="stat_label">Total Tasks</p>
+                        <p class="stat_value">0</p>
+                    </div>
+                </div>
+
+                <div class="stat_card">
+                    <div class="stat_icon icon_active">◯</div>
+                    <div class="stat_text">
+                        <p class="stat_label">Active</p>
+                        <p class="stat_value">0</p>
+                    </div>
+                </div>
+
+                <div class="stat_card">
+                    <div class="stat_icon icon_done">✓</div>
+                    <div class="stat_text">
+                        <p class="stat_label">Completed</p>
+                        <p class="stat_value">0 <span class="stat_sub">(0%)</span></p>
+                    </div>
+                </div>
+            </aside>
+
+        
+            <section class="main_panel">
+                <div class="task_ui">
+                    <div class="searchbar_outer">
+                        <input type="text" placeholder="What needs to be done?" class="searchbar" />
+                        <button class="add_button" type="button">
+                            <img class="plus_sign" src="images/plus_sign.svg" alt="" />
+                            Add Task
+                        </button>
+                    </div>
+
+                    <div class="controls_outer">
+                        <div class="control_block">
+                            <p class="control_label">Priority</p>
+                            <div class="pill_group">
+                                <button class="pill" type="button">Low</button>
+                                <button class="pill active" type="button">Medium</button>
+                                <button class="pill" type="button">High</button>
+                            </div>
+                        </div>
+
+                        <div class="control_block">
+                            <p class="control_label">Category</p>
+                            <select class="category_select">
+                                <option>General</option>
+                                <option>Work</option>
+                                <option>School</option>
+                                <option>Personal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter_outer">
+                        <div class="filter_search">
+                            <span class="search_icon" aria-hidden="true">🔍</span>
+                            <input type="text" class="filter_input" placeholder="Search tasks..." />
+                        </div>
+
+                        <div class="filter_actions">
+                            <div class="filter_tabs">
+                                <button class="tab active" type="button">All</button>
+                                <button class="tab" type="button">Active</button>
+                                <button class="tab" type="button">Completed</button>
+                            </div>
+
+                            <button class="clear_completed" type="button">Clear Completed</button>
+                        </div>
+                    </div>
+
+                
+                    <div class="tasks_box">
+                        <div class="tasks_empty">
+                            <div class="empty_icon">✓</div>
+                            <p class="empty_title">No tasks found</p>
+                            <p class="empty_sub">Add a new task to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </body>
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
