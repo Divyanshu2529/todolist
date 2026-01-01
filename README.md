@@ -1,45 +1,71 @@
-📝 Dynamic To-Do List Application
+🩸 TASK MANAGER
+“Organize your tasks before they escape to the Upside Down.”
 
-A simple and interactive To-Do List web application built using HTML, CSS, and Vanilla JavaScript. This app allows users to add, edit, and delete tasks, with all data stored persistently using the browser’s Local Storage.
+A Stranger Things–inspired Task Manager built with HTML, CSS, and JavaScript.
+Designed with a dark, cinematic aesthetic, glowing accents, and a glassmorphism UI — because even in Hawkins, productivity matters.
 
-🚀 Features
+🧇 Welcome to Hawkins
 
-➕ Add new tasks instantly
+This Task Manager helps you keep track of your missions, errands, and survival plans while the world slowly descends into chaos.
 
-✏️ Edit existing tasks
+Whether it’s:
 
-🗑️ Delete tasks easily
+🧪 Lab work
 
-💾 Persistent storage using Local Storage (tasks remain after page refresh)
+📚 School assignments
 
-🎨 Clean and responsive user interface
+🧹 Daily chores
 
-🛠️ Technologies Used
+🧠 Personal goals
 
-HTML – Structure and layout
+This app keeps everything organized, persistent, and under control.
 
-CSS – Styling and responsive design
+⚡ Features from the Other Side
 
-JavaScript – Application logic and DOM manipulation
+➕ Create tasks with priority & category
 
-Local Storage API – Persistent data storage
+✏️ Edit tasks without leaving the list
 
-📌 Purpose
+✅ Mark tasks as completed
 
-This project demonstrates fundamental front-end development skills, including:
+🗑️ Delete tasks permanently (no Demogorgon resurrections)
 
-DOM manipulation
+🧹 Clear completed tasks
 
-Event handling
+🔍 Search tasks instantly
 
-Client-side data persistence
+🧭 Filter by dimension:
 
-Building interactive web applications without frameworks
+All
 
-📂 How to Run
+Active
 
-Clone the repository
+Completed
 
-Open index.html in your browser
+📊 Live stats panel:
 
-Start managing your tasks 🎯
+Total Tasks
+
+Active Tasks
+
+Completed Tasks + Percentage
+
+💾 Persistent storage using localStorage
+
+📱 Fully responsive for all devices
+
+🩸 Stranger Things–inspired dark UI
+
+🎨 The Look & Feel
+
+Dark cinematic background
+
+Red neon-glow typography
+
+Glassmorphism panels
+
+Smooth hover & click animations
+
+Upside Down–style contrast & saturation
+
+Built to feel like it belongs in Hawkins after midnight.
