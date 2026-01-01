@@ -550,3 +550,101 @@ body{
   }
 }
 
+
+.task_row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+  margin-top: 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: #e5e7eb;
+}
+
+.task_toggle{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.15);
+  color: #e5e7eb;
+
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.task_content{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0; 
+}
+
+.task_text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task_text.completed{
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task_badges{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: rgba(229, 231, 235, 0.95);
+}
+
+.badge.priority-low{ box-shadow: 0 0 0 2px rgba(120,160,255,0.10) inset; }
+.badge.priority-medium{ box-shadow: 0 0 0 2px rgba(255,200,80,0.10) inset; }
+.badge.priority-high{ box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.14) inset; }
+
+.task_btn{
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.15);
+  color: #e5e7eb;
+
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.task_btn.danger{
+  border-color: rgba(229, 9, 20, 0.45);
+  color: rgba(255, 107, 107, 1);
+}
+
+.edit_input{
+  flex: 1;
+  height: 34px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.18);
+  color: #e5e7eb;
+
+  padding: 0 12px;
+  outline: none;
+}
+
+

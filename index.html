@@ -26,7 +26,7 @@
                     <div class="stat_icon icon_total">☑</div>
                     <div class="stat_text">
                         <p class="stat_label">Total Tasks</p>
-                        <p class="stat_value">0</p>
+                        <p class="stat_value stat_total">0</p>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                     <div class="stat_icon icon_active">◯</div>
                     <div class="stat_text">
                         <p class="stat_label">Active</p>
-                        <p class="stat_value">0</p>
+                        <p class="stat_value stat_active">0</p>
                     </div>
                 </div>
 
@@ -42,12 +42,13 @@
                     <div class="stat_icon icon_done">✓</div>
                     <div class="stat_text">
                         <p class="stat_label">Completed</p>
-                        <p class="stat_value">0 <span class="stat_sub">(0%)</span></p>
+                        <p class="stat_value stat_completed">
+                            0 <span class="stat_sub stat_percent">(0%)</span>
+                        </p>
                     </div>
                 </div>
             </aside>
 
-        
             <section class="main_panel">
                 <div class="task_ui">
                     <div class="searchbar_outer">
@@ -87,17 +88,19 @@
 
                         <div class="filter_actions">
                             <div class="filter_tabs">
-                                <button class="tab active" type="button">All</button>
-                                <button class="tab" type="button">Active</button>
-                                <button class="tab" type="button">Completed</button>
+                                <button class="tab active" type="button" data-tab="all">All</button>
+                                <button class="tab" type="button" data-tab="active">Active</button>
+                                <button class="tab" type="button" data-tab="completed">Completed</button>
                             </div>
+
 
                             <button class="clear_completed" type="button">Clear Completed</button>
                         </div>
                     </div>
 
-                
                     <div class="tasks_box">
+                        <div class="tasks_list"></div>
+
                         <div class="tasks_empty">
                             <div class="empty_icon">✓</div>
                             <p class="empty_title">No tasks found</p>
