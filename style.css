@@ -54,7 +54,6 @@ body{
   letter-spacing: 2px;
 }
 
-
 .searchbar_outer{
   display: flex;
   align-items: center;
@@ -66,7 +65,6 @@ body{
   background: rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
 }
-
 
 .searchbar{
   flex: 1;
@@ -86,7 +84,6 @@ body{
   border-color: rgba(255, 80, 80, 0.95);
   box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.25);
 }
-
 
 .add_button{
   height: 52px;
@@ -120,7 +117,6 @@ body{
   height: 16px;
 }
 
-
 .controls_outer{
   margin-top: 18px;
   display: flex;
@@ -138,7 +134,6 @@ body{
   font-weight: 500;
   color: rgba(255,255,255,0.75);
 }
-
 
 .pill_group{
   display: flex;
@@ -169,7 +164,6 @@ body{
   transform: scale(0.98);
 }
 
-
 .category_select{
   width: 100%;
   height: 56px;
@@ -197,8 +191,6 @@ body{
   color: #d1d5db;
 }
 
-
-
 .filter_outer{
   margin-top: 18px;
 
@@ -212,7 +204,6 @@ body{
   background: rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
 }
-
 
 .filter_search{
   flex: 1;
@@ -253,7 +244,6 @@ body{
   border-color: rgba(120,160,255,0.7);
   box-shadow: 0 0 0 3px rgba(120,160,255,0.18);
 }
-
 
 .filter_actions{
   display: flex;
@@ -298,7 +288,6 @@ body{
   color: #ffd6d6;
 }
 
-
 .clear_completed{
   height: 56px;
   padding: 0 18px;
@@ -322,7 +311,6 @@ body{
 .clear_completed:active{
   transform: scale(0.98);
 }
-
 
 @media (max-width: 900px){
   .filter_outer{
@@ -391,7 +379,6 @@ body{
   padding: 18px 18px;
   border-radius: 16px;
 
-  
   background: transparent;
   backdrop-filter: none;
 
@@ -409,7 +396,6 @@ body{
 
   font-size: 20px;
   color: #d1d5db;
-
 
   background: transparent;
   backdrop-filter: none;
@@ -455,12 +441,10 @@ body{
   margin-left: 6px;
 }
 
-
 .task_ui{
   width: 100%;
   margin: 0;
 }
-
 
 .tasks_box{
   margin-top: 18px;
@@ -469,7 +453,6 @@ body{
   padding: 18px 22px;
   border-radius: 16px;
 
-  
   background: transparent;
   backdrop-filter: none;
 
@@ -478,7 +461,6 @@ body{
   position: relative;
   overflow: hidden;
 }
-
 
 .tasks_box::before{
   content: "";
@@ -508,7 +490,6 @@ body{
   display: grid;
   place-items: center;
 
-  
   background: transparent;
   backdrop-filter: none;
 
@@ -533,7 +514,6 @@ body{
   color: rgba(209, 213, 219, 0.65);
 }
 
-
 @media (max-width: 980px){
   .layout{
     grid-template-columns: 1fr;
@@ -550,101 +530,9 @@ body{
   }
 }
 
-
-.task_row{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 14px;
-  margin-top: 12px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(0,0,0,0.25);
-  color: #e5e7eb;
+.pill.active {
+  border: 1px solid #e50914;      
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.35);
+  background: rgba(229, 9, 20, 0.12);
+  color: #ffd6d6;
 }
-
-.task_toggle{
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.15);
-  color: #e5e7eb;
-
-  cursor: pointer;
-  flex: 0 0 auto;
-}
-
-.task_content{
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0; 
-}
-
-.task_text{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.task_text.completed{
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-.task_badges{
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.badge{
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.06);
-  color: rgba(229, 231, 235, 0.95);
-}
-
-.badge.priority-low{ box-shadow: 0 0 0 2px rgba(120,160,255,0.10) inset; }
-.badge.priority-medium{ box-shadow: 0 0 0 2px rgba(255,200,80,0.10) inset; }
-.badge.priority-high{ box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.14) inset; }
-
-.task_btn{
-  height: 34px;
-  padding: 0 12px;
-  border-radius: 10px;
-
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.15);
-  color: #e5e7eb;
-
-  cursor: pointer;
-  flex: 0 0 auto;
-}
-
-.task_btn.danger{
-  border-color: rgba(229, 9, 20, 0.45);
-  color: rgba(255, 107, 107, 1);
-}
-
-.edit_input{
-  flex: 1;
-  height: 34px;
-  border-radius: 10px;
-
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.18);
-  color: #e5e7eb;
-
-  padding: 0 12px;
-  outline: none;
-}
-
-
