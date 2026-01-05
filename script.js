@@ -11,6 +11,28 @@ const statActive = document.querySelector(".stat_active");
 const statCompleted = document.querySelector(".stat_completed");
 const statPercent = document.querySelector(".stat_percent");
 
+const filterInput = document.querySelector(".filter_input");
+
+const clearCompletedBtn = document.querySelector(".clear_completed");
+
+
+if (filterInput) {
+  filterInput.addEventListener("input", () => render());
+}
+
+const tabs = document.querySelectorAll(".tab");
+let activeTab = "all";
+
+tabs.forEach((tab)=> {
+    tab.addEventListener("click",()=>{
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        activeTab = tab.dataset.tab;
+        render();
+    });
+});
+
 
 let tasks = [];
 
@@ -55,16 +77,25 @@ function deleteTask(id){
   render();
 }
 
+if (clearCompletedBtn) {
+  clearCompletedBtn.addEventListener("click", () => {
+    tasks = tasks.filter(t => !t.completed);
+    saveTasks();
+    render();
+  });
+}
+
+
 function updateStats(){
     const total = tasks.length;
-    const completed = tasks.filterilter(t => t.completed).length;
-    const active = totall - completed;
+    const completed = tasks.filter(t => t.completed).length;
+    const active = total - completed;
     const percent = total === 0 ? 0: Math.round((completed/total)*100);
 
     statTotal.textContent = total;
     statActive.textContent = active;
 
-    statCompleted.childNodes[0].textContent = completed + "";
+    statCompleted.childNodes[0].textContent = completed + " ";
     statPercent.textContent = "(" + percent + "%)";
 }
 
@@ -72,23 +103,46 @@ function updateStats(){
 function render(){
     taskslist.innerHTML = "";
 
-    if (tasks.length === 0){
+    let visibleTasks = tasks;
+
+    if (activeTab === "active") {
+        visibleTasks = tasks.filter(t => !t.completed);
+    } 
+    else if (activeTab === "completed") {
+        visibleTasks = tasks.filter(t => t.completed);
+    }
+
+    const q = filterInput ? filterInput.value.trim().toLowerCase() : "";
+    if (q) {
+        visibleTasks = visibleTasks.filter(t =>
+            t.text.toLowerCase().includes(q) ||
+            t.priority.toLowerCase().includes(q) ||
+            t.category.toLowerCase().includes(q)
+         );
+    }
+
+
+    if (visibleTasks.length === 0){
         emptystate.style.display = "grid";
+        updateStats();
         return;
     }
 
     emptystate.style.display = "none";
 
-    for (let i = 0; i < tasks.length; i++){
-        const task = tasks[i];
+    for (let i = 0; i < visibleTasks.length; i++){
+        const task = visibleTasks[i];
         const row = document.createElement("div");
+        row.classList.add("task_row");
 
         const check = document.createElement("input");
         check.type = "checkbox";
         check.checked = task.completed;
-
+        check.classList.add("task_check");
+        
         const text = document.createElement("span");
         text.textContent = task.text + " - " + task.priority + " - " + task.category;
+        text.classList.add("task_text");
 
         if (task.completed){
         text.style.textDecoration = "line-through";
@@ -97,6 +151,7 @@ function render(){
 
         const del = document.createElement("button");
         del.textContent = "Delete";
+        del.classList.add("task_delete");
 
         check.addEventListener("change", () => toggleCompleted(task.id));
         del.addEventListener("click", () => deleteTask(task.id));
@@ -106,8 +161,8 @@ function render(){
         row.appendChild(del);
 
         taskslist.appendChild(row);
-        updateStats();
     }
+    updateStats();
 }
 
 addbutton.addEventListener("click", () =>{
@@ -135,6 +190,9 @@ addbutton.addEventListener("click", () =>{
     tasks.push(task)
     saveTasks();
     inputedtask.value = "";
+    activeTab = "all";
+    tabs.forEach(t => t.classList.remove("active"));
+    document.querySelector('.tab[data-tab="all"]').classList.add("active");
     render();
 });
 

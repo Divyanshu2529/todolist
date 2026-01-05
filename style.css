@@ -536,3 +536,34 @@ body{
   background: rgba(229, 9, 20, 0.12);
   color: #ffd6d6;
 }
+
+.task_row{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  backdrop-filter: blur(0px);
+  margin-bottom: 12px;
+}
+
+.task_text{
+  flex: 1;
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+.task_delete{
+  border: 1px solid rgba(229, 9, 20, 0.55);
+  background: rgba(0,0,0,0.18);
+  color: #ff6b6b;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.task_delete:hover{
+  background: rgba(229, 9, 20, 0.10);
+}
