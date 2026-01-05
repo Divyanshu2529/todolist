@@ -537,6 +537,8 @@ body{
   color: #ffd6d6;
 }
 
+/* ---------- TASK CARD + FIX COLLISION ---------- */
+
 .task_row{
   display: flex;
   align-items: center;
@@ -545,25 +547,165 @@ body{
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(0,0,0,0.22);
-  backdrop-filter: blur(0px);
   margin-bottom: 12px;
+  width: 100%;
 }
 
-.task_text{
+.task_check{
+  flex-shrink: 0;
+}
+
+.task_textwrap{
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0; /* important */
+}
+
+.task_title{
   color: #e5e7eb;
   font-size: 16px;
+
+  /* important: prevent pushing buttons */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task_meta{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.18);
+  color: rgba(229,231,235,0.9);
+}
+
+.badge_category{
+  border-color: rgba(120,160,255,0.35);
+}
+
+.badge_priority{
+  font-weight: 600;
+}
+
+.p_low{
+  border-color: rgba(80,255,160,0.45);
+  box-shadow: 0 0 0 3px rgba(80,255,160,0.10);
+}
+
+.p_medium{
+  border-color: rgba(255,200,80,0.45);
+  box-shadow: 0 0 0 3px rgba(255,200,80,0.10);
+}
+
+.p_high{
+  border-color: rgba(229,9,20,0.55);
+  box-shadow: 0 0 0 3px rgba(229,9,20,0.12);
+}
+
+/* Buttons: do not shrink so they don't overlap text */
+.task_edit,
+.task_delete,
+.task_cancel{
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
 }
 
 .task_delete{
   border: 1px solid rgba(229, 9, 20, 0.55);
   background: rgba(0,0,0,0.18);
   color: #ff6b6b;
-  padding: 8px 12px;
-  border-radius: 999px;
-  cursor: pointer;
 }
 
 .task_delete:hover{
   background: rgba(229, 9, 20, 0.10);
+}
+
+.task_edit{
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.18);
+  color: #d1d5db;
+}
+
+.task_edit:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+.task_edit:active,
+.task_delete:active,
+.task_cancel:active{
+  transform: scale(0.98);
+}
+
+/* Save mode look */
+.task_edit.save_mode{
+  border-color: rgba(229, 9, 20, 0.55);
+  color: #ffd6d6;
+  background: rgba(229, 9, 20, 0.10);
+}
+
+.task_edit.save_mode:hover{
+  background: rgba(229, 9, 20, 0.16);
+}
+
+/* Cancel button */
+.task_cancel{
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.18);
+  color: rgba(209,213,219,0.95);
+}
+
+.task_cancel:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+/* Edit input inside card */
+.task_edit_input{
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  min-width: 0;
+
+  border-radius: 999px;
+  border: 1px solid rgba(120,160,255,0.35);
+  background: rgba(0,0,0,0.22);
+
+  color: #e5e7eb;
+  font-size: 16px;
+  outline: none;
+
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.task_edit_input:focus{
+  border-color: rgba(255, 80, 80, 0.9);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.22);
+  background: rgba(0,0,0,0.28);
+}
+
+.task_edit_input::placeholder{
+  color: rgba(209, 213, 219, 0.6);
+}
+
+/* Mobile: let buttons wrap to next line if needed */
+@media (max-width: 700px){
+  .task_row{
+    flex-wrap: wrap;
+  }
+  .task_textwrap{
+    width: 100%;
+  }
 }
